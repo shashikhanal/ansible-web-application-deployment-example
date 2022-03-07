@@ -1,0 +1,8 @@
+- name: Deploy Web Application
+  hosts: db_and_web_servers
+  become: true
+  become_user: root
+  roles:
+    - python
+    - mysql_db
+    - web

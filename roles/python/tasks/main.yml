@@ -1,0 +1,22 @@
+---
+# tasks file for Python - manually created
+
+- name: Install all required dependencies
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python
+    - python-setuptools
+    - python-devel # python-dev
+    - epel-release # install epel repo for python-pip
+    - python-pip
+    - gcc # thesese three are build-essential equivalent in CentOS
+    - gcc-c++
+    - glibc-devel
+    - make
+    - python-imaging
+    - python-psycopg2
+    - git-core
+    - nginx
+    

@@ -1,0 +1,18 @@
+
+- name: Create directory /var/www
+  file:
+    path: /var/www
+    state: directory
+
+- name: Copy source code
+  copy: 
+    src: app.py
+    dest: /var/www/app.py
+
+- name: Start Web Server
+  shell: |
+    nohup python /var/www/app.py &
+  register: server_output
+
+# display output in the console
+- debug: var=server_output.stdout_lines
